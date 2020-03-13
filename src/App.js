@@ -8,7 +8,7 @@ class App extends React.Component{
 
     render(){
         return(
-            <div>
+            <div id="wrapper" className="min-vh-100 d-flex bg-light">
                 <Login/>
             </div>
         )
