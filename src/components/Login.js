@@ -2,16 +2,28 @@ import React, { Component } from 'react'
 
 export default class Login extends Component {
     state = {
-        token: '',
-        showPass: false
+        showPass: false,
+        user: '',
+        pass: ''
     }
- 
-    toggleVisibility = () => {
+    
+    //toggle passsword visiblity
+    showPassword = () => {
         this.setState({showPass: !this.state.showPass});
     }
 
+    //setState user to email input
+    getUsername = (e) => {
+        this.setState({ user: e.target.value})
+    }
+
+    //setState pass to password input
+    getPassword = (e) => {
+        this.setState({pass : e.target.value})
+    }
+
     render() {
-        const {showPass} = this.state;
+        const {showPass, user, pass} = this.state;
         const {getToken} = this.props;
         return (
             <div id="login" className="align-self-center container p-0 shadow bg-white">
@@ -21,19 +33,22 @@ export default class Login extends Component {
                     <p className="lead">Check remote attendances without hassle-free for BootCampSpot.</p>
                 </div>
             </div>
-                <form id="login-form" className="container d-flex flex-column pb-4" onSubmit={getToken}>
+                <form id="login-form" className="container d-flex flex-column pb-4" onSubmit={(e) => getToken(e, user, pass)}>
                     <div className="form-group">
                         <label htmlFor="login-email">Email</label>
                         <input id="login-email"
+                            onChange={this.getUsername}
                             className="form-control form-control-lg" 
-                            type="email" 
+                            type="text" 
                             placeholder="E-mail" 
-                            defaultValue=""
+                            autoComplete="off"
+                            value={user}
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="login-password">Password</label>
                         <input id="login-password" 
+                            onChange={this.getPassword}
                             className="form-control form-control-lg" 
                             type={this.statehowPass ? "text" : "password"}
                             placeholder="Password" 

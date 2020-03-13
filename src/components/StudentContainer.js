@@ -8,9 +8,10 @@ export default class StudentContainer extends Component {
     }
 
     render() {
+        const {removeToken} = this.props;
         return (
             <div>
-                <Nav/>
+                <Nav removeToken={removeToken}/>
             </div>
         )
     }
