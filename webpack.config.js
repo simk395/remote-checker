@@ -2,11 +2,14 @@ var path = require('path');
 var HtmlWebpackPlugin =  require('html-webpack-plugin');
 
 module.exports = {
-    entry : './src/App.js',
+    entry : './src/index.js',
     output : {
         path : path.resolve(__dirname , 'dist'),
-        filename: 'app_bundle.js'
+        filename: 'index_bundle.js'
     },
+    devServer: {
+        historyApiFallback: true
+      },
     module : {
         rules : [
             {test : /\.(js)$/, use:'babel-loader'},
