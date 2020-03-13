@@ -2,11 +2,14 @@
   "name": "remote-checker",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "babel":{
-    "presets" : [
+  "main": "src/App.js",
+  "babel": {
+    "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
     ]
   },
   "scripts": {
@@ -27,6 +30,7 @@
   "homepage": "https://github.com/simk395/remote-checker#readme",
   "devDependencies": {
     "@babel/core": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
